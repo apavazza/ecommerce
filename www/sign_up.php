@@ -8,6 +8,7 @@
 	$errorCheckbox = "";
 
 	function checkFirstName() {
+		global $errorFirstName;
 		if(count($_POST['firstname']) >= 3 &&  count($_POST['firstname']) <=50){
 			$errorFirstName = "";
 		} else{
@@ -16,6 +17,7 @@
 	}
 
 	function checkLastName() {
+		global $errorLastName;
 		if(count($_POST['lastname']) >= 3 &&  count($_POST['lastname']) <=50){
 			$errorLastName = "";
 		} else{
@@ -24,6 +26,7 @@
 	}
 
 	function checkUsername() {
+		global $errorUsername;
 		if(count($_POST['username']) >= 3 &&  count($_POST['username']) <=16){
 			$errorUsername = "";
 		} else{
@@ -32,6 +35,7 @@
 	}
 
 	function checkPassword() {
+		global $errorPassword;
 		if(count($_POST['password']) >= 10 &&  count($_POST['password']) <=50){
 			$errorPassword = "";
 		} else{
@@ -40,6 +44,7 @@
 	}
 
 	function checkRepeatPassword() {
+		global $errorRepeatPassword;
 		if($_POST['password'] == $_POST['repeatpassword']){
 			$errorRepeatPassword = "";
 		} else{
@@ -48,6 +53,7 @@
 	}
 
 	function checkEmail($email) {
+		global $errorEmail;
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			$errorEmail = "";
 		} else{
@@ -56,6 +62,7 @@
 	}
 
 	function checkCheckbox() {
+		global $errorCheckbox;
 		if($_POST['checkbox'] == true){
 			return $errorCheckbox = "";
 		} else{
@@ -63,9 +70,18 @@
 		}
 	}
 
-	if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username'])){
+	//checkFirstName();
+	//checkLastName();
+	//checkUsername();
+	//checkPassword()
+	checkRepeatPassword();
+	//checkEmail($email);
+	//checkCheckbox();
 
-		$host = 'localhost';
+	if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username'])){
+		
+
+		$host = 'postgres';
 		$dbname = 'ecommerce';
 		$user = 'admin';
 		$password = '~a5Xf;UB}^3kchY'; //only for testing purposes, not an actual password
@@ -75,7 +91,7 @@
 			$pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
 		
 			// Prepare the SQL statement with placeholders for variables
-			$sql = "INSERT INTO customer (first_name, last_name, username, password, email) VALUES (:firstname, :lastname, :username, :password, email)";
+			$sql = "INSERT INTO customer (first_name, last_name, username, password, email) VALUES (:firstname, :lastname, :username, :password, :email)";
 			$stmt = $pdo->prepare($sql);
 		
 			// Bind the variables to the placeholders	
@@ -88,7 +104,7 @@
 			// Execute the statement
 			$stmt->execute();
 		
-			echo "Variables inserted successfully!";
+			//echo "Variables inserted successfully!";
 		} catch (PDOException $e) {
 			echo "Error: " . $e->getMessage();
 		}

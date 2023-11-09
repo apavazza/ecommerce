@@ -6,6 +6,7 @@ services:
       - 80:80
     volumes:
       - ./www:/var/www/html/
+      - ./php_config/:/usr/local/etc/php/
 
   postgres:
     image: postgres
