@@ -11,8 +11,10 @@
 		global $errorFirstName;
 		if(count($_POST['firstname']) >= 3 &&  count($_POST['firstname']) <=50){
 			$errorFirstName = "";
+			return true;
 		} else{
 			$errorFirstName = "<p>Please write your real name. Maximum lenght is 50 characters!</p>";
+			return false;
 		}
 	}
 
@@ -20,8 +22,10 @@
 		global $errorLastName;
 		if(count($_POST['lastname']) >= 3 &&  count($_POST['lastname']) <=50){
 			$errorLastName = "";
+			return true;
 		} else{
 			$errorLastName = "<p>Please write your real name. Maximum lenght is 50 characters!</p>";
+			return false;
 		}
 	}
 
@@ -29,8 +33,10 @@
 		global $errorUsername;
 		if(count($_POST['username']) >= 3 &&  count($_POST['username']) <=16){
 			$errorUsername = "";
+			return true;
 		} else{
 			$errorUsername = "<p>The userename can contain [a-z] and [0-9]. Maximum lenght is 16 characters!</p>";
+			return false;
 		}
 	}
 
@@ -38,8 +44,10 @@
 		global $errorPassword;
 		if(count($_POST['password']) >= 10 &&  count($_POST['password']) <=50){
 			$errorPassword = "";
+			return true;
 		} else{
 			$errorPassword = "<p>Password must have 10 to 50 characters and can contain letters, numbers and symbols!</p>";
+			return false;
 		}
 	}
 
@@ -47,17 +55,10 @@
 		global $errorRepeatPassword;
 		if($_POST['password'] == $_POST['repeatpassword']){
 			$errorRepeatPassword = "";
+			return true;
 		} else{
 			$errorRepeatPassword = "<p>Passwords don't match!</p>";
-		}
-	}
-
-	function checkEmail($email) {
-		global $errorEmail;
-		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-			$errorEmail = "";
-		} else{
-			$errorEmail = "<p>Please write your real email address!</p>";
+			return false;
 		}
 	}
 
@@ -65,20 +66,14 @@
 		global $errorCheckbox;
 		if($_POST['checkbox'] == true){
 			return $errorCheckbox = "";
+			return true;
 		} else{
 			$errorCheckbox = "<p>In order to create an account you must accept the terms and coditions!</p>";
+			return false;
 		}
 	}
 
-	//checkFirstName();
-	//checkLastName();
-	//checkUsername();
-	//checkPassword()
-	checkRepeatPassword();
-	//checkEmail($email);
-	//checkCheckbox();
-
-	if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username'])){
+	if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username']) && checkRepeatPassword()){
 		
 
 		$host = 'postgres';
@@ -143,7 +138,7 @@
 					<label>Email</label>
 					<input type="email" name="email">
 					<?= $errorEmail ?>
-					<input type="checkbox" name="" required> I accept the <a href="terms.html">terms and coditions</a>.
+					<input type="checkbox" name="checkbox" required> I accept the <a href="terms.html">terms and coditions</a>.
 					<?= $errorCheckbox ?>
 					<br>
 					<br>
