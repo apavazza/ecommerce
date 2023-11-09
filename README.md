@@ -1,14 +1,14 @@
-# E-commerce
+# eCommerce
 
 ## Docker
 To create and start docker containers execute  
-`docker-compose up -d`
+`docker-compose -f docker-compose.development.yml up -d`
 
 To start already existing containers execute  
-`docker-compose start`
+`docker-compose -f docker-compose.development.yml start`
 
 To stop all containers execute  
-`docker-compose stop`
+`docker-compose -f docker-compose.development.yml stop`
 
 To stop and delete all containers execute  
-`docker-compose down`
+`docker-compose -f docker-compose.development.yml down`

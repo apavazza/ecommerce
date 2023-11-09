@@ -1,12 +1,11 @@
 version: "3"
 services:
   apache:
-    image: php:apache
+    build:
+      context: .
+      dockerfile: Dockerfile.production
     ports:
       - 80:80
-    volumes:
-      - ./www:/var/www/html/
-      - ./php_config/:/usr/local/etc/php/
 
   postgres:
     image: postgres
