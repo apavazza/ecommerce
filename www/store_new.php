@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-
 <html>
-
 	<head>
-
 		<title>eCommerce - Store</title>
-
 		<meta charset="utf-8">
-
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
-
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/jquery-mycart-master/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="/jquery-mycart-master/js/jquery.mycart.min.js"></script>
         <script src="/jquery-mycart-master/js/jquery.mycart.js"></script>
-
 	</head>
-
 	<body>
 	    <?php include('navbar.html') ?>
-
         <div class="col-md-3 text-center">
             <img src="images/pexels-alena-shekhovtcova-6995868.jpg" width="250px" height="250px">
             <br>
@@ -42,9 +33,6 @@
 
 		<script type="text/javascript">
 
-
 		</script>
-
 	</body>
-
 </html>

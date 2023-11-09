@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-
 <html>
-
 	<head>
-
 		<title>eCommerce - Store</title>
-
 		<meta charset="utf-8">
-
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
-
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-		
-		
-
 		<link rel="stylesheet" href="/jquery-mycart-master/css/bootstrap.min.css">
-
 		<script src="/jquery-mycart-master/js/jquery.mycart.min.js"></script>
 		<script src="/jquery-mycart-master/js/bootstrap.min.js"></script>
-
 		<script src="/jquery-mycart-master/js/jquery.mycart.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	</head>
-
 	<body>
-
 		<?php include('navbar.html') ?>
 
 		<div class="row">
@@ -164,7 +151,5 @@
 
 
 		</script>
-
 	</body>
-
 </html>
