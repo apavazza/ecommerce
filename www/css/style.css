@@ -1,0 +1,205 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {font-size: 1em;}
+
+body {
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  src: 'http://localhost/fonts/OpenSans-Regular.ttf';
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.157em;
+}
+
+h2 {font-size: 2.369em;}
+
+h3 {font-size: 1.777em;}
+
+h4 {font-size: 1.333em;}
+
+small, .font_small {font-size: 0.75em;}
+
+#navbar{
+	background: #0078d7;
+	overflow: hidden;
+}
+
+#navbar ul:first-child {
+	float: left;
+}
+
+#navbar ul:last-child {
+	float: right;
+}
+
+#navbar ul li {
+	display: inline-block;
+}
+
+#navbar ul li a{
+	color: #fff;
+	display: block;
+	padding: 20px 40px;
+	text-decoration: none;
+}
+
+#navbar ul li a:hover{
+	background: #3498db;
+}
+
+.slider{
+	position: relative;
+}
+
+.slider img {
+	width: 100%;
+}
+
+.slider h1{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	font-size: 70px;
+	transform: translate(-50%, -50%);
+}
+
+.content{
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 50px;
+	overflow: hidden;
+}
+
+.novosti {
+	background: #bdc3c7;
+	overflow: hidden;
+}
+
+.novost{
+	width: 33%;
+	float: left;
+	padding: 10px;
+
+}
+
+.novosti img{
+	width: 100%;
+}
+
+.novosti a{
+	background: #fff;
+	display: block;
+	padding: 5px;
+}
+
+.lightgallery img {
+	float: left;
+	width: 20%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.signin{
+	max-width: 550px;
+	margin: 0 auto;
+	padding: 50px;
+	overflow: hidden;
+}
+
+input[type="text"],input[type="email"], input[type="password"], select, textarea {
+	width: 100%;
+	display: block;
+	padding: 5px;
+	margin-bottom: 15px;
+}
+button{
+	background: #0078d7;
+	padding: 10px;
+	float: left;
+	color: #fff;
+	border: solid;
+	border-width: 2px;
+	border-color: #0078d7;
+	width: 100%;
+	font-size: 17px;
+}
+
+button:hover{
+	border-color: #004e8c;
+}
+
+button:active{
+	background: #999;
+}
+
+ol, ul {
+	margin-bottom: 0px;
+}
+
+#signup{
+	background: #ffba08;
+}
+
+#footer{
+	background: #333;
+	color: white;
+	margin-bottom: 0px;
+}
+
+.field input[type="text"], input[type="email"], input[type="password"], select{
+	padding: 4px 8px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,0.4);
+	height: 32px;
+}
+
+.field textarea{
+	padding: 4px 8px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,0.4);
+}
+
+.field input:active[type="text"], input:active[type="email"], input:active[type="password"], select:active{
+	border-color: blue;
+}
+
+.field a{
+	text-decoration: none;
+}
+
+.field h2{
+	text-align: center;
+}
+
+#createaccount{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+}
+
+#forgotpassword{
+	float: right;
+	text-decoration: none;
+}

@@ -1,0 +1,22 @@
+version: "3"
+services:
+  apache:
+    image: php:apache
+    ports:
+      - 80:80
+    volumes:
+      - ./www:/var/www/html/
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=~a5Xf;UB}^3kchY
+      - POSTGRES_DB=ecommerce
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
