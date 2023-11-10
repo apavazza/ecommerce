@@ -3,12 +3,9 @@ services:
   apache:
     build:
       context: .
-      dockerfile: Dockerfile.development
+      dockerfile: Dockerfile.prod
     ports:
       - 80:80
-    volumes:
-      - ./www:/var/www/html/
-      - ./php_config/:/usr/local/etc/php/
 
   postgres:
     image: postgres

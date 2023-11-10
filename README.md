@@ -2,13 +2,13 @@
 
 ## Docker
 To create and start docker containers execute  
-`docker-compose -f docker-compose.development.yml up -d`
+`docker-compose -f docker-compose.dev.yml up -d`
 
 To start already existing containers execute  
-`docker-compose -f docker-compose.development.yml start`
+`docker-compose -f docker-compose.dev.yml start`
 
 To stop all containers execute  
-`docker-compose -f docker-compose.development.yml stop`
+`docker-compose -f docker-compose.dev.yml stop`
 
 To stop and delete all containers execute  
-`docker-compose -f docker-compose.development.yml down`
+`docker-compose -f docker-compose.dev.yml down`
