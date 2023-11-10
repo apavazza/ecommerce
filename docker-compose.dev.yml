@@ -9,6 +9,7 @@ services:
     volumes:
       - ./www:/var/www/html/
       - ./php_config/:/usr/local/etc/php/
+      - ./apache_config/apache2.conf:/etc/apache2/apache2.conf
 
   postgres:
     image: postgres
