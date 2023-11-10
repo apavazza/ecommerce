@@ -1,0 +1,20 @@
+#news {
+	background: #bdc3c7;
+	overflow: hidden;
+}
+
+.article{
+	width: 33%;
+	float: left;
+	padding: 10px;
+}
+
+.article img{
+	width: 100%;
+}
+
+.article a{
+	background: #fff;
+	display: block;
+	padding: 5px;
+}

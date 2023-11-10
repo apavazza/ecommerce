@@ -1,0 +1,31 @@
+#navbar{
+	background: #0078d7;
+	overflow: hidden;
+}
+
+#navbar ul:first-child {
+	float: left;
+}
+
+#navbar ul:last-child {
+	float: right;
+}
+
+#navbar ul li {
+	display: inline-block;
+}
+
+#navbar ul li a{
+	color: #fff;
+	display: block;
+	padding: 20px 40px;
+	text-decoration: none;
+}
+
+#navbar ul li a:hover{
+	background: #3498db;
+}
+
+#signup{
+	background: #ffba08;
+}

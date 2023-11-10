@@ -6,6 +6,7 @@
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
 		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<link rel="stylesheet" href="css/homepage.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
@@ -23,9 +24,9 @@
 			</div>
 		</div>
 
-		<div class="novosti">
+		<div id="news">
 			<div class="content">
-				<div class="novost">
+				<div class="article">
 					<a href="">
 						<img src="images/fezb-logo.png">
 						<h3>Naslov 1</h3>
@@ -34,7 +35,7 @@
 					</a>
 				</div>
 
-				<div class="novost">
+				<div class="article">
 					<a href="">
 						<img src="images/fezb-logo.png">
 						<h3>Naslov 2</h3>
@@ -43,7 +44,7 @@
 					</a>
 				</div>
 
-				<div class="novost">
+				<div class="article">
 					<a href="">
 						<img src="images/fezb-logo.png">
 						<h3>Naslov 3</h3>
