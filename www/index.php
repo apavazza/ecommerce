@@ -27,8 +27,8 @@
 			<div class="content">
 				<div class="novost">
 					<a href="">
-						<img src="images/2.jpg">
-						<h3>NAslov 1</h3>
+						<img src="images/fezb-logo.png">
+						<h3>Naslov 1</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dolor eu est vulp</p>
 						<span>Read More</span>
 					</a>
@@ -36,8 +36,8 @@
 
 				<div class="novost">
 					<a href="">
-						<img src="images/2.jpg">
-						<h3>NAslov 2</h3>
+						<img src="images/fezb-logo.png">
+						<h3>Naslov 2</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dolor eu est vulp</p>
 						<span>Read More</span>
 					</a>
@@ -45,8 +45,8 @@
 
 				<div class="novost">
 					<a href="">
-						<img src="images/2.jpg">
-						<h3>NAslov 3</h3>
+						<img src="images/fezb-logo.png">
+						<h3>Naslov 3</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dolor eu est vulp</p>
 						<span>Read More</span>
 					</a>
