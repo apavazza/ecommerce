@@ -1,0 +1,76 @@
+#signin{
+	max-width: 550px;
+	margin: 0 auto;
+	padding: 50px;
+	overflow: hidden;
+}
+
+#sing_up{}
+
+input[type="text"],input[type="email"], input[type="password"], select, textarea {
+	width: 100%;
+	display: block;
+	padding: 5px;
+	margin-bottom: 15px;
+}
+
+button[type="submit"]{
+	background: #0078d7;
+	padding: 10px;
+	float: left;
+	color: #fff;
+	border: solid;
+	border-width: 2px;
+	border-color: #0078d7;
+	width: 100%;
+	font-size: 17px;
+}
+
+button[type="submit"]:hover{
+	border-color: #004e8c;
+}
+
+button[type="submit"]:active{
+	background: #999;
+}
+
+.field input[type="text"], input[type="email"], input[type="password"], select{
+	padding: 4px 8px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,0.4);
+	height: 32px;
+}
+
+.field textarea{
+	padding: 4px 8px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,0.4);
+}
+
+.field input:active[type="text"], input:active[type="email"], input:active[type="password"], select:active{
+	border-color: blue;
+}
+
+.field a{
+	text-decoration: none;
+}
+
+.field h2{
+	text-align: center;
+}
+
+#account_sign_in_up{
+	display: block;
+	text-align: center;
+	justify-content: center;
+	text-decoration: none;
+}
+
+#forgotpassword{
+	float: right;
+	text-decoration: none;
+}

@@ -4,6 +4,7 @@
 		<title>eCommerce - Store</title>
 		<meta charset="utf-8">
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/store.css">
     <link rel="stylesheet" href="jquery-mycart-master/css/bootstrap.min.css">
     
         <style>
@@ -28,7 +29,6 @@
       </div>
     </h1>
   </div>
-  <button type="addNewProduct" name="addNewProduct" id="addNewProduct">Add New Product</button>
 
 <div class="row">
   <div class="col-md-3 text-center">
@@ -134,7 +134,7 @@
         },
         getDiscountPrice: function(products, totalPrice, totalQuantity) {
           console.log("calculating discount", products, totalPrice, totalQuantity);
-          return totalPrice * 0.5;
+          return totalPrice * 1; // no discount
         }
       });
 
