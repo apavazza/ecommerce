@@ -81,6 +81,9 @@
 		$user = 'admin';
 		$password = '~a5Xf;UB}^3kchY'; //only for testing purposes, not an actual password
 		
+		// Calculate password hash
+		$passwordHash = hash('sha3-256', $_POST['password']);
+
 		try {
 			// Connect to the PostgreSQL database
 			$pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
@@ -88,12 +91,12 @@
 			// Prepare the SQL statement with placeholders for variables
 			$sql = "INSERT INTO customer (first_name, last_name, username, password, email) VALUES (:firstname, :lastname, :username, :password, :email)";
 			$stmt = $pdo->prepare($sql);
-		
+
 			// Bind the variables to the placeholders	
 			$stmt -> bindParam(':firstname', $_POST['firstname']);
 			$stmt -> bindParam(':lastname', $_POST['lastname']);
 			$stmt -> bindParam(':username', $_POST['username']);
-			$stmt -> bindParam(':password', $_POST['password']);
+			$stmt -> bindParam(':password', $passwordHash);
 			$stmt -> bindParam(':email', $_POST['email']);
 		
 			// Execute the statement
