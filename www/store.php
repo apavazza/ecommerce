@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
     <link rel="stylesheet" href="css/store.css">
-    <link rel="stylesheet" href="jquery-mycart-master/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
         <style>
             .badge-notify{
@@ -81,7 +81,7 @@
 <?php include('footer.html') ?>
 
 <script src="jquery-mycart-master/js/jquery-2.2.3.min.js"></script>
-<script type='text/javascript' src="jquery-mycart-master/js/bootstrap.min.js"></script>
+<script type='text/javascript' src="bootstrap/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="jquery-mycart-master/js/jquery.mycart.js"></script>
 <script type="text/javascript">
     $(function () {
