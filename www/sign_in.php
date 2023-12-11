@@ -4,14 +4,13 @@
 		<title>eCommerce - Sign In</title>
 		<meta charset="utf-8">
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<?php include('navbar.html') ?>
 			<div id="signin">
-				<form class="field" action="process/process_sign_in.php" method="POST">
+				<form class="field" action="/process/process_sign_in.php" method="POST">
 					<h2>Sign in</h2>
 					<br>
 					<input type="text" name="username" placeholder="Username" >
