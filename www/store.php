@@ -80,9 +80,9 @@
 
 <?php include('footer.html') ?>
 
-<script src="jquery-mycart-master/js/jquery-2.2.3.min.js"></script>
-<script type='text/javascript' src="bootstrap/js/bootstrap.min.js"></script>
-<script type='text/javascript' src="jquery-mycart-master/js/jquery.mycart.js"></script>
+<script src="jquery-mycart/js/jquery-2.2.3.min.js"></script>
+<script type='text/javascript' src="jquery-mycart/js/bootstrap.min.js"></script>
+<script type='text/javascript' src="jquery-mycart/js/jquery.mycart.js"></script>
 <script type="text/javascript">
     $(function () {
 

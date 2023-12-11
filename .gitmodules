@@ -1,0 +1,3 @@
+[submodule "www/jquery-mycart"]
+	path = www/jquery-mycart
+	url = https://github.com/Asraf-Uddin-Ahmed/jquery.mycart
