@@ -1,0 +1,2 @@
+FROM postgres
+COPY ./config/postgres /docker-entrypoint-initdb.d
