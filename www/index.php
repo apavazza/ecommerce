@@ -28,7 +28,7 @@
 			<div class="content">
 				<div class="article">
 					<a href="">
-						<img src="images/fezb-logo.png">
+						<img src="images/fesb-logo.jpg">
 						<h3>Naslov 1</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dolor eu est vulp</p>
 						<span>Read More</span>
@@ -37,7 +37,7 @@
 
 				<div class="article">
 					<a href="">
-						<img src="images/fezb-logo.png">
+						<img src="images/fesb-logo.jpg">
 						<h3>Naslov 2</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dolor eu est vulp</p>
 						<span>Read More</span>
@@ -46,7 +46,7 @@
 
 				<div class="article">
 					<a href="">
-						<img src="images/fezb-logo.png">
+						<img src="images/fesb-logo.jpg">
 						<h3>Naslov 3</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dolor eu est vulp</p>
 						<span>Read More</span>
