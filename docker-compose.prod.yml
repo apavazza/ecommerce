@@ -1,20 +1,20 @@
 version: "3"
 services:
-  apache:
+  apache-prod:
     build:
       context: .
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile-apache.prod
     ports:
       - 80:80
 
-  postgres:
-    image: postgres
+  postgres-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile-postgres.prod
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=~a5Xf;UB}^3kchY
       - POSTGRES_DB=ecommerce
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data
 
   adminer:
     image: adminer

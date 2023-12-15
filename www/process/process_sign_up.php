@@ -76,7 +76,7 @@
 	if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username']) && checkRepeatPassword()){
 		
 
-		$host = 'postgres';
+		$host = 'postgres-dev'; // change to 'postgres-prod' if using for production
 		$dbname = 'ecommerce';
 		$user = 'admin';
 		$password = '~a5Xf;UB}^3kchY'; //only for testing purposes, not an actual password

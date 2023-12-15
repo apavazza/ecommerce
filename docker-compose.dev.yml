@@ -1,24 +1,24 @@
 version: "3"
 services:
-  apache:
+  apache-dev:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile-apache.dev
     ports:
       - 80:80
     volumes:
       - ./www:/var/www/html/
-      - ./php_config/:/usr/local/etc/php/
-      - ./apache_config/apache2.conf:/etc/apache2/apache2.conf
+      - ./config/php/:/usr/local/etc/php/
+      - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
 
-  postgres:
+  postgres-dev:
     image: postgres
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=~a5Xf;UB}^3kchY
       - POSTGRES_DB=ecommerce
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - ./config/postgres/:/docker-entrypoint-initdb.d/
 
   adminer:
     image: adminer
