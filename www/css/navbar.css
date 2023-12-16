@@ -1,32 +1,35 @@
-body { 
+body {
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
 	display: flex;
-	align-items: center; 
+	align-items: center;
 	justify-content: space-between;
 	overflow: hidden;
 	background-color: #04AA6D;
 }
+
 .logo {
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 	color: white;
 }
+
 .logo img {
 	width: 40px;
 	height: 40px;
 	margin-right: 10px;
 }
+
 .header a {
 	color: white;
 	text-align: center;
 	padding: 12px;
 	text-decoration: none;
-	font-size: 18px; 
+	font-size: 18px;
 	line-height: 25px;
 	border-radius: 4px;
 }
@@ -40,40 +43,54 @@ body {
 	color: black;
 }
 
-.header-right {
-	float: right;
-	margin-right: 50px;
-}
-
 .header #myLinks {
 	display: none;
-	position: absolute;
-	background-color: #333;
-	width: 100%;
-	left: 0;
-	top: 65px;
-	color: white;
-	z-index: 999;
-}
-
-.header #myLinks a {
-	display: block;
-	text-align: left;
-	padding: 10px 15px;
 }
 
 .header a.icon {
-	display: block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	margin-top: 8px;
+	display: none;
 }
-#myLinks {
-	margin-top: -1px;
-}
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 	.header-right {
 		display: none;
+	}
+
+	.signLinks {
+		display: none;
+	}
+
+	.header a.icon {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin-top: 8px;
+	}
+
+	#myLinks {
+		position: absolute;
+		top: 65px;
+		width: 100%;
+		display: none;
+		flex-direction: column;
+		background-color: #333;
+		z-index: 999;
+		margin-top: -1px;
+
+	}
+
+	#myLinks a {
+		display: block;
+		text-align: left;
+		padding: 10px;
+	}
+
+	.header.responsive .icon {
+		background-color: #ddd;
+		color: black;
+	}
+
+	.header.responsive #myLinks {
+		display: flex;
 	}
 }
