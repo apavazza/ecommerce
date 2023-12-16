@@ -1,31 +1,79 @@
-#navbar{
-	background: #0078d7;
+body { 
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+	display: flex;
+	align-items: center; 
+	justify-content: space-between;
 	overflow: hidden;
+	background-color: #04AA6D;
 }
-
-#navbar ul:first-child {
-	float: left;
-}
-
-#navbar ul:last-child {
-	float: right;
-}
-
-#navbar ul li {
-	display: inline-block;
-}
-
-#navbar ul li a{
-	color: #fff;
-	display: block;
-	padding: 20px 40px;
+.logo {
+	display: flex;
+	align-items: center;
 	text-decoration: none;
+	color: white;
+}
+.logo img {
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+.header a {
+	color: white;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px; 
+	line-height: 25px;
+	border-radius: 4px;
 }
 
-#navbar ul li a:hover{
-	background: #3498db;
+.header a.logo {
+	font-size: 20px;
 }
 
-#signup{
-	background: #ffba08;
+.header a:hover:not(.logo) {
+	background-color: #ddd;
+	color: black;
+}
+
+.header-right {
+	float: right;
+	margin-right: 50px;
+}
+
+.header #myLinks {
+	display: none;
+	position: absolute;
+	background-color: #333;
+	width: 100%;
+	left: 0;
+	top: 65px;
+	color: white;
+	z-index: 999;
+}
+
+.header #myLinks a {
+	display: block;
+	text-align: left;
+	padding: 10px 15px;
+}
+
+.header a.icon {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 8px;
+}
+#myLinks {
+	margin-top: -1px;
+}
+@media (max-width: 600px) {
+	.header-right {
+		display: none;
+	}
 }
