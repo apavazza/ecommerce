@@ -20,7 +20,7 @@
             }
         </style>
     </head>
-	<body class="container">
+	<body>
 	    <?php include('navbar.html') ?>
         <div class="page-header">
     <h1>Products
