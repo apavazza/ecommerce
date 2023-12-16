@@ -2,76 +2,157 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-}
-
-html {
+  }
+  
+  html {
 	font-size: 1em;
-}
-
-body {
-  background-color: white;
-  font-family: 'Open Sans', sans-serif;
-  src: 'http://localhost/fonts/OpenSans-Regular.ttf';
-  font-weight: 400;
-  line-height: 1.45;
-  color: #333;
-}
-
-ol, ul {
+  }
+  
+  body {
+	background-color: white;
+	font-family: 'Open Sans', sans-serif;
+	src: 'http://localhost/fonts/OpenSans-Regular.ttf';
+	font-weight: 400;
+	line-height: 1.45;
+	color: #333;
+  }
+  
+  ol, ul {
 	margin-bottom: 0px;
-}
-
-p {
+  }
+  
+  p {
 	margin-bottom: 1.3em;
-}
-
-h1, h2, h3, h4 {
-  margin: 1.414em 0 0.5em;
-  font-weight: inherit;
-  line-height: 1.2;
-}
-
-h1 {
-  margin-top: 0;
-  font-size: 3.157em;
-}
-
-h2 {
+  }
+  
+  h1, h2, h3, h4 {
+	margin: 1.414em 0 0.5em;
+	font-weight: inherit;
+	line-height: 1.2;
+  }
+  
+  h1 {
+	margin-top: 0;
+	font-size: 3.157em;
+  }
+  
+  h2 {
 	font-size: 2.369em;
-}
-
-h3 {
+  }
+  
+  h3 {
 	font-size: 1.777em;
-}
-
-h4 {
+  }
+  
+  h4 {
 	font-size: 1.333em;
-}
-
-small, .font_small {
+  }
+  
+  small, .font_small {
 	font-size: 0.75em;
-}
-
-.slider{
+  }
+  
+  .slider {
 	position: relative;
-}
-
-.slider img {
+  }
+  
+  .slider img {
 	width: 100%;
-}
-
-.slider h1{
+  }
+  
+  .slider h1 {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	text-align: center;
 	font-size: 70px;
 	transform: translate(-50%, -50%);
-}
-
-.content{
+  }
+  
+  .content {
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 50px;
 	overflow: hidden;
-}
+  }
+  
+  /* Stilovi za mobilne uređaje */
+  @media (max-width: 767px) {
+	body {
+	  font-size: 14px;
+	}
+  
+	h1 {
+	  font-size: 24px;
+	}
+  
+	h2 {
+	  font-size: 20px;
+	}
+  
+	h3 {
+	  font-size: 18px;
+	}
+  
+	h4 {
+	  font-size: 16px;
+	}
+  
+	.content {
+	  padding: 20px;
+	}
+  }
+  
+  /* Stilovi za tablete */
+  @media (min-width: 768px) and (max-width: 1023px) {
+	body {
+	  font-size: 16px;
+	}
+  
+	h1 {
+	  font-size: 36px;
+	}
+  
+	h2 {
+	  font-size: 28px;
+	}
+  
+	h3 {
+	  font-size: 24px;
+	}
+  
+	h4 {
+	  font-size: 20px;
+	}
+  
+	.content {
+	  padding: 30px;
+	}
+  }
+  
+  /* Stilovi za desktop računalima */
+  @media (min-width: 1024px) {
+	body {
+	  font-size: 18px;
+	}
+  
+	h1 {
+	  font-size: 48px;
+	}
+  
+	h2 {
+	  font-size: 40px;
+	}
+  
+	h3 {
+	  font-size: 32px;
+	}
+  
+	h4 {
+	  font-size: 28px;
+	}
+  
+	.content {
+	  padding: 50px;
+	}
+  }

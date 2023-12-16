@@ -1,13 +1,43 @@
-<link rel="stylesheet" href="css/navbar.css">
-<div id="navbar">
-	<ul>
-		<li><a href="index.php">Home</a></li>
-		<li><a href="about_us.php">About Us</a></li>
-		<li><a href="store.php">Store</a></li>
-		<li><a href="contact.php">Contact</a></li>
-	</ul>
-	<ul>
-		<li><a href="sign_in.php">SIGN IN</a></li>
-		<li id="signup"><a href="sign_up.php">SIGN UP</a></li>
-	</ul>			
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/navbar.css">
+  <title>Navbar</title>
+</head>
+<body>
+  <div class="header">
+    <a href="index.php" class="logo">
+      FESB eCommerce
+      <img src="/images/fesb-logo-removebg-preview.png" alt="FESB Logo">
+    </a>
+    <div class="header-right">
+      <a href="sign_in.php">Sign in</a>
+      <a href="sign_up.php">Sign up</a>
+    </div>
+    <div id="myLinks">
+      <a href="index.php">Home</a>
+      <a href="sign_in.php">Sign in</a>
+      <a href="sign_up.php">Sign up</a>
+      <a href="about_us.php">About Us</a>
+      <a href="store.php">Store</a>
+      <a href="contact.php">Contact</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
