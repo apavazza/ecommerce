@@ -1,13 +1,13 @@
 version: "3"
 services:
-  apache-prod:
+  apache:
     build:
       context: .
       dockerfile: Dockerfile-apache.prod
     ports:
       - 80:80
 
-  postgres-prod:
+  postgres:
     build:
       context: .
       dockerfile: Dockerfile-postgres.prod

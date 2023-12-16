@@ -1,6 +1,6 @@
 version: "3"
 services:
-  apache-dev:
+  apache:
     build:
       context: .
       dockerfile: Dockerfile-apache.dev
@@ -11,7 +11,7 @@ services:
       - ./config/php/:/usr/local/etc/php/
       - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
 
-  postgres-dev:
+  postgres:
     image: postgres
     environment:
       - POSTGRES_USER=admin
