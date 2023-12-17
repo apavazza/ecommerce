@@ -42,7 +42,7 @@
 				header("Location: /customer/profile.php");
 				exit();
 			} else{
-				$errorPassword = "<p>Wrong password</p>";
+				$errorPassword = "<p>Incorrect password</p>";
 			}
 		} catch (PDOException $e) {
 			echo "Error: " . $e->getMessage();
