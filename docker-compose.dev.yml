@@ -7,7 +7,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./www:/var/www/html/
+      - ./www/:/var/www/html/
       - ./config/php/:/usr/local/etc/php/
       - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
 
@@ -19,6 +19,7 @@ services:
       - POSTGRES_DB=ecommerce
     volumes:
       - ./config/postgres/:/docker-entrypoint-initdb.d/
+      - ./postgres_data/:/var/lib/postgresql/data/
 
   adminer:
     image: adminer
