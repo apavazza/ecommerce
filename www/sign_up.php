@@ -7,46 +7,89 @@
 	$errorEmail = "";
 	$errorCheckbox = "";
 
+	$db_host = 'postgres';
+	$db_name = 'ecommerce';
+	$db_user = 'admin';
+	$db_password = '~a5Xf;UB}^3kchY'; //only for testing purposes, not an actual password
+
+	function usernameAvailable(){
+		global $db_host;
+		global $db_name;
+		global $db_user;
+		global $db_password;
+		// Connect to the PostgreSQL database
+		$conn = new PDO("pgsql:host=$db_host;dbname=$db_name", $db_user, $db_password);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		// Check if the connection was successful
+		if (!$conn) {
+			echo "Failed to connect to the database.";
+			exit;
+		}
+
+		// Prepare the SQL statement with placeholders for variables
+		$query = "SELECT username FROM customer WHERE username = :username";
+		$stmt = $conn->prepare($query);
+		$stmt->bindValue(':username', $_POST['username']);
+		$stmt->execute();
+
+		// Fetch the result
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if($result){
+			// the username already exists
+			return false;
+		} {
+			// the username does not exist
+			return true;
+		}
+	}
+
 	function checkFirstName() {
 		global $errorFirstName;
-		if(count($_POST['firstname']) >= 3 &&  count($_POST['firstname']) <=50){
+		if(strlen($_POST['firstname']) >= 3 &&  strlen($_POST['firstname']) <=128){
 			$errorFirstName = "";
 			return true;
 		} else{
-			$errorFirstName = "<p>Please write your real name. Maximum lenght is 50 characters!</p>";
+			$errorFirstName = "<p>Please write your real name (3-128 characters)</p>";
 			return false;
 		}
 	}
 
 	function checkLastName() {
 		global $errorLastName;
-		if(count($_POST['lastname']) >= 3 &&  count($_POST['lastname']) <=50){
+		if(strlen($_POST['lastname']) >= 3 &&  strlen($_POST['lastname']) <=128){
 			$errorLastName = "";
 			return true;
 		} else{
-			$errorLastName = "<p>Please write your real name. Maximum lenght is 50 characters!</p>";
+			$errorLastName = "<p>Please write your real name (3-128 characters)</p>";
 			return false;
 		}
 	}
 
 	function checkUsername() {
 		global $errorUsername;
-		if(count($_POST['username']) >= 3 &&  count($_POST['username']) <=16){
-			$errorUsername = "";
-			return true;
+		if(strlen($_POST['username']) >= 3 &&  strlen($_POST['username']) <=32 && preg_match("/^[a-z0-9]+$/", $_POST['username'])){
+			// chech whether the username is taken
+			if(usernameAvailable()){
+				$errorUsername = "";
+				return true;
+			} else{
+				$errorUsername = "<p>This username is already taken</p>";
+				return false;
+			}
 		} else{
-			$errorUsername = "<p>The userename can contain [a-z] and [0-9]. Maximum lenght is 16 characters!</p>";
+			$errorUsername = "<p>The userename can contain [a-z] and [0-9]. Lenght has to be from 3 to 32 characters!</p>";
 			return false;
 		}
 	}
 
 	function checkPassword() {
 		global $errorPassword;
-		if(count($_POST['password']) >= 10 &&  count($_POST['password']) <=50){
+		if(strlen($_POST['password']) >= 10 &&  strlen($_POST['password']) <=64){
 			$errorPassword = "";
 			return true;
 		} else{
-			$errorPassword = "<p>Password must have 10 to 50 characters and can contain letters, numbers and symbols!</p>";
+			$errorPassword = "<p>Password must have 10 to 64 characters and can contain letters, numbers and symbols</p>";
 			return false;
 		}
 	}
@@ -57,7 +100,7 @@
 			$errorRepeatPassword = "";
 			return true;
 		} else{
-			$errorRepeatPassword = "<p color='red'>Passwords don't match!</p>";
+			$errorRepeatPassword = "<p>Passwords don't match!</p>";
 			return false;
 		}
 	}
@@ -73,20 +116,18 @@
 		}
 	}
 
-	if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username']) && checkRepeatPassword()){
-		
-
-		$host = 'postgres';
-		$dbname = 'ecommerce';
-		$user = 'admin';
-		$password = '~a5Xf;UB}^3kchY'; //only for testing purposes, not an actual password
+	if(!empty($_POST['firstname']) && checkFirstName() && checkLastName() && checkUsername() && checkPassword() && checkRepeatPassword()){
+		global $db_host;
+		global $db_name;
+		global $db_user;
+		global $db_password;
 		
 		// Calculate password hash
 		$passwordHash = hash('sha3-256', $_POST['password']);
 
 		try {
 			// Connect to the PostgreSQL database
-			$pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
+			$pdo = new PDO("pgsql:host=$db_host;dbname=$db_name", $db_user, $db_password);
 		
 			// Prepare the SQL statement with placeholders for variables
 			$sql = "INSERT INTO customer (first_name, last_name, username, password, email) VALUES (:firstname, :lastname, :username, :password, :email)";
@@ -101,8 +142,6 @@
 		
 			// Execute the statement
 			$stmt->execute();
-		
-			//echo "Variables inserted successfully!";
 
 			// Redirect to success message
 			header("Location: /sign_up_success.php"); 
@@ -146,7 +185,7 @@
 					<label>Email</label>
 					<input type="email" name="email">
 					<?= $errorEmail ?>
-					<input type="checkbox" name="checkbox" required> I accept the <a href="terms.html">terms and coditions</a>.
+					<input type="checkbox" name="checkbox" required> I accept the <a href="terms.html">terms and conditions</a>.
 					<?= $errorCheckbox ?>
 					<br>
 					<br>

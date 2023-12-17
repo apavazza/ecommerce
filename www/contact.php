@@ -27,7 +27,7 @@
 					<option value="2">Legal</option>
 					<option value="1">Other</option>
 					</select>
-					<input type="checkbox" name=""> I accept the <a href="terms.html">terms and coditions</a>.
+					<input type="checkbox" name=""> I accept the <a href="terms.html">terms and conditions</a>.
 					<br>
 					<br>
 					<textarea rows="10">
