@@ -37,7 +37,10 @@
 				$errorUsername = "<p>This username does not exist</p>";
 			} elseif ($password == $passwordHash) {
 				// Redirect to customer's profile
+				session_start();
+				$_SESSION['username'] = $_POST['username'];
 				header("Location: /customer/profile.php");
+				exit();
 			} else{
 				$errorPassword = "<p>Wrong password</p>";
 			}
