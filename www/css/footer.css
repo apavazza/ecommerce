@@ -1,5 +1,11 @@
 #footer{
+	display: block;
+	position: fixed;
+	margin-top: auto;
+	margin-bottom: 0;
+	bottom: 0;
     width: 100%;
 	background: #333;
 	color: white;
+	text-align: center;
 }
