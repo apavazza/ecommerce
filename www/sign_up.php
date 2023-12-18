@@ -1,12 +1,4 @@
 <?php
-	$errorFirstName = "";
-	$errorLastName = "";
-	$errorUsername = "";
-	$errorPassword = "";
-	$errorRepeatPassword = "";
-	$errorEmail = "";
-	$errorCheckbox = "";
-
 	$db_host = 'postgres';
 	$db_name = 'ecommerce';
 	$db_user = 'admin';
@@ -38,7 +30,7 @@
 		if($result){
 			// the username already exists
 			return false;
-		} {
+		} else{
 			// the username does not exist
 			return true;
 		}
@@ -46,22 +38,22 @@
 
 	function checkFirstName() {
 		global $errorFirstName;
-		if(strlen($_POST['firstname']) >= 3 &&  strlen($_POST['firstname']) <=128){
+		if(strlen(!empty($_POST['firstname'])) && strlen($_POST['firstname']) <=128){
 			$errorFirstName = "";
 			return true;
 		} else{
-			$errorFirstName = "<p>Please write your real name (3-128 characters)</p>";
+			$errorFirstName = "<p>Please write your first name (up to 128 characters)</p>";
 			return false;
 		}
 	}
 
 	function checkLastName() {
 		global $errorLastName;
-		if(strlen($_POST['lastname']) >= 3 &&  strlen($_POST['lastname']) <=128){
+		if(strlen(!empty($_POST['lastname'])) && strlen($_POST['lastname']) <=128){
 			$errorLastName = "";
 			return true;
 		} else{
-			$errorLastName = "<p>Please write your real name (3-128 characters)</p>";
+			$errorLastName = "<p>Please write your last name (up to 128 characters)</p>";
 			return false;
 		}
 	}
@@ -69,7 +61,7 @@
 	function checkUsername() {
 		global $errorUsername;
 		if(strlen($_POST['username']) >= 3 &&  strlen($_POST['username']) <=32 && preg_match("/^[a-z0-9]+$/", $_POST['username'])){
-			// chech whether the username is taken
+			// check whether the username is taken
 			if(usernameAvailable()){
 				$errorUsername = "";
 				return true;
@@ -78,7 +70,7 @@
 				return false;
 			}
 		} else{
-			$errorUsername = "<p>The userename can contain [a-z] and [0-9]. Lenght has to be from 3 to 32 characters!</p>";
+			$errorUsername = "<p>The userename can contain [a-z] and [0-9]. Lenght has to be from 3 to 32 characters.</p>";
 			return false;
 		}
 	}
@@ -149,8 +141,8 @@
 		} catch (PDOException $e) {
 			echo "Error: " . $e->getMessage();
 		}
-}
- ?>
+	}
+?>
 
 <!DOCTYPE html>
 <html>

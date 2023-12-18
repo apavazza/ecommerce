@@ -1,7 +1,4 @@
 <?php
-	$errorUsername = "";
-	$errorPassword = "";
-
 	if(!empty($_POST['username']) && !empty($_POST['password'])){
 		$db_host = 'postgres';
 		$db_name = 'ecommerce';
@@ -23,22 +20,23 @@
 			}
 
 			// Prepare the SQL statement with placeholders for variables
-			$query = "SELECT password FROM customer WHERE username = :username";
+			$query = "SELECT id_customer, password FROM customer WHERE username = :username";
 			$stmt = $conn->prepare($query);
 			$stmt->bindValue(':username', $_POST['username']);
 			$stmt->execute();
 
 			// Fetch the result
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			$password = $result['password'];
+			$customer_id = $result['id_customer'];
+			$customer_password = $result['password'];
 
 			// Check if the query was successful
 			if (!$result) {
 				$errorUsername = "<p>This username does not exist</p>";
-			} elseif ($password == $passwordHash) {
+			} elseif ($customer_password == $passwordHash) {
 				// Redirect to customer's profile
 				session_start();
-				$_SESSION['username'] = $_POST['username'];
+				$_SESSION['customer_id'] = $customer_id;
 				header("Location: /customer/profile.php");
 				exit();
 			} else{
@@ -58,6 +56,12 @@
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
 		<link rel="stylesheet" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<style>
+			#footer{
+          		position: fixed;
+          		bottom: 0;
+        	}
+		</style>
 	</head>
 	<body>
 		<?php include('navbar.html') ?>

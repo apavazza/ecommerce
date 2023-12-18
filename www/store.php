@@ -6,19 +6,22 @@
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
     <link rel="stylesheet" href="css/store.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    
-        <style>
-            .badge-notify{
-            background:red;
-             position:relative;
-            top: -20px;
-            right: 10px;
-            }
-            .my-cart-icon-affix {
-            position: fixed;
-            z-index: 999;
-            }
-        </style>
+      <style>
+        #footer{
+          position: fixed;
+          bottom: 0;
+        }
+        .badge-notify{
+          background:red;
+          position:relative;
+          top: -20px;
+          right: 10px;
+        }
+        .my-cart-icon-affix {
+          position: fixed;
+          z-index: 999;
+        }
+      </style>
     </head>
 	<body>
 	    <?php include('navbar.html') ?>
@@ -34,7 +37,7 @@
   <div class="col-md-3 text-center">
     <img src="images/black-sweater-apparel-shoot-with-design-space.jpg" width="150px" height="150px">
     <br>
-    FEZB hudica - <strong>€150</strong>
+    FESB hudica - <strong>€150</strong>
     <br>
     <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="150" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
     <a href="#" class="btn btn-info">Details</a>
@@ -43,18 +46,18 @@
   <div class="col-md-3 text-center">
     <img src="images/pexels-alena-shekhovtcova-6995868.jpg" width="150px" height="150px">
     <br>
-    Još bolja FEZB hudica - <strong>€500</strong>
+    FESB hudica Pro - <strong>€300</strong>
     <br>
-    <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="500" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
+    <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="300" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
     <a href="#" class="btn btn-info">Details</a>
   </div>
 
   <div class="col-md-3 text-center">
     <img src="images/white-hoodie-man-with-green-pants-city.jpg" width="150px" height="150px">
     <br>
-    product 3 - <strong>€30</strong>
+    FESB hudica Pro+ - <strong>€500</strong>
     <br>
-    <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
+    <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="500" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
     <a href="#" class="btn btn-info">Details</a>
   </div>
 
@@ -110,9 +113,7 @@
         showCheckoutModal: true,
         numberOfDecimals: 2,
         cartItems: [
-          {id: 1, name: 'product 1', summary: 'summary 1', price: 10, quantity: 1, image: 'images/img_1.png'},
-          {id: 2, name: 'product 2', summary: 'summary 2', price: 20, quantity: 2, image: 'images/img_2.png'},
-          {id: 3, name: 'product 3', summary: 'summary 3', price: 30, quantity: 1, image: 'images/img_3.png'}
+          
         ],
         clickOnAddToCart: function($addTocart){
           goToCartIcon($addTocart);
