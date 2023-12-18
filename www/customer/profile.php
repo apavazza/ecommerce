@@ -22,9 +22,9 @@
 			session_start();
 
 			// Prepare the SQL statement with placeholders for variables
-			$query = "SELECT * FROM customer WHERE username = :username";
+			$query = "SELECT * FROM customer WHERE id_customer = :id_customer";
 			$stmt = $conn->prepare($query);
-			$stmt->bindValue(':username', $_SESSION['username']);
+			$stmt->bindValue(':id_customer', $_SESSION['customer_id']);
 			$stmt->execute();
 
 			// Fetch the result

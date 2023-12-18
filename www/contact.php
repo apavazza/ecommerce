@@ -6,6 +6,12 @@
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
 		<link rel="stylesheet" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<style>
+			#footer{
+          		position: fixed;
+          		bottom: 0;
+        	}
+		</style>
 	</head>
 	<body>
 		<?php include('navbar.html') ?>
