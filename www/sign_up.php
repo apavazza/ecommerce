@@ -36,7 +36,7 @@
 					<br />
 					<img src="/php_scripts/captcha.php?rand=<?php echo rand(); ?>" id='captcha_image'>
 					<br>
-					<label>Enter Captcha</label><br />
+					<label>Enter captcha</label><br />
 					<input type="text" name="captcha"  required/>
 					<?= $errorCaptcha ?>
 					<p>Can't read the image?
