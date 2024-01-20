@@ -28,37 +28,50 @@
 						<td>
 							<label>Username: </label>
 						</td>
-						<td>
+						<td id="username-value">
 							<?= $customer_username ?>
+						</td>
+						<td>
+							<button id="edit-username">Edit</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<label>Email: </label>
 						</td>
-						<td>
+						<td id="email-value">
 							<?= $customer_email ?>
+						</td>
+						<td>
+							<button id="edit-email">Edit</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<label>First name: </label>
 						</td>
-						<td>
+						<td id="first-name-value">
 							<?= $customer_first_name ?>
+						</td>
+						<td>
+							<button id="edit-first-name">Edit</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<label>Last name: </label>
 						</td>
-						<td>
+						<td id="last-name-value">
 							<?= $customer_last_name ?>
+						</td>
+						<td>
+							<button id="edit-last-name">Edit</button>
 						</td>
 					</tr>
 				</table>
 				<img src="<?= $avatarSrc ?>" alt="User Avatar">
 			</div>
 		</main>
+		<script src="../js_scripts/profile.js"></script>
 	</body>
 </html>
