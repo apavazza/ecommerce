@@ -8,10 +8,11 @@
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link rel="stylesheet" href="/css/customer_profile.css">
+		<link rel="stylesheet" href="/css/navbar.css">
 	</head>
 	<body>
 		<nav>
-		
+		<?php include('../navbar.html') ?>
 		</nav>
 		<main>
 			<div class="profile-content">
@@ -70,8 +71,14 @@
 					</tr>
 				</table>
 				<img src="<?= $avatarSrc ?>" alt="User Avatar">
+				<form method="POST">
+        			<label for="new-avatar">Select a file:</label>
+        			<input type="file" id="new-avatar" name="new-avatar" accept=".jpg, .jpeg, .png">
+       				<button type="submit">Update</button>
+    			</form>
 			</div>
 		</main>
 		<script src="../js_scripts/profile.js"></script>
+		<script src="../js_scripts/navbar.js"></script>
 	</body>
 </html>

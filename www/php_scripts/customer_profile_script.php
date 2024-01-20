@@ -5,6 +5,8 @@ if (true) {
     $db_user = 'admin';
     $db_password = '~a5Xf;UB}^3kchY'; // Only for testing purposes, not an actual password
 
+    $customerCookieId = $_COOKIE['customer_session'];
+
     try {
         // Connect to the PostgreSQL database
         $conn = new PDO("pgsql:host=$db_host;dbname=$db_name", $db_user, $db_password);
@@ -15,7 +17,7 @@ if (true) {
         // Prepare the SQL statement with placeholders for variables
         $query = "SELECT * FROM customer WHERE id_customer = :id_customer";
         $stmt = $conn->prepare($query);
-        $stmt->bindValue(':id_customer', $_SESSION['customer_id']);
+        $stmt->bindValue(':id_customer', $customerCookieId);
         $stmt->execute();
 
         // Fetch the result

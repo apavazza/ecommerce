@@ -26,7 +26,7 @@
 					<br>
 					<input type="password" name="password" placeholder="Password" autocomplete="off" >
 					<?= $errorPassword ?>
-					<input type="checkbox" name=""> Stay signed in
+					<input type="checkbox" name="stay-signed-in"> Stay signed in
 					<a id="forgotpassword" href="forgot_password.php">Forgot my password</a>
 					<br>
 					<br>

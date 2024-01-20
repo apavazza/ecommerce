@@ -7,6 +7,7 @@
 		
 		// Calculate password hash
 		$passwordHash = hash('sha3-256', $_POST['password']);
+		$staySignedIn = $_POST['stay-signed-in'];
 		
 		try {
 			// Connect to the PostgreSQL database
@@ -37,6 +38,10 @@
 				// Redirect to customer's profile
 				session_start();
 				$_SESSION['customer_id'] = $customer_id;
+				setcookie('customer_session', $customer_id, 0, '/');
+				if($staySignedIn){
+					setcookie('customer_permanent', $customer_id, time() + (30 * 24 * 60 * 60), '/');
+				}
 				header("Location: /customer/profile.php");
 				exit();
 			} else{
