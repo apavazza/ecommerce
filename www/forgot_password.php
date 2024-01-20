@@ -17,7 +17,7 @@
 	<body>
 		<?php include('navbar.html') ?>
 		<div id="signin">
-			<form class="field" action="/process/process_forgot_password.php" method="POST">
+			<form class="field" action="/php_scripts/process_forgot_password.php" method="POST">
 				<h2>Forgot Password</h2>
 				<br>
 				<input type="email" name="email" placeholder="Email" autocomplete="off" >

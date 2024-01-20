@@ -17,7 +17,7 @@
 		<?php include('navbar.html') ?>
 		<div class="sadrzaj">
 			<div class="content">
-				<form class="field" action="/process/send.php" method="POST">
+				<form class="field" action="/php_scripts/send.php" method="POST">
 					<h3>Contact</h3>
 					<label>First name</label>
 					<input type="text" name="firstname">
