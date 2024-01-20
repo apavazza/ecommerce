@@ -1,44 +1,4 @@
-<?php
-	if(true){
-		$db_host = 'postgres';
-		$db_name = 'ecommerce';
-		$db_user = 'admin';
-		$db_password = '~a5Xf;UB}^3kchY'; //only for testing purposes, not an actual password
-		
-		// Calculate password hash
-		$passwordHash = hash('sha3-256', $_POST['password']);
-		
-		try {
-			// Connect to the PostgreSQL database
-			$conn = new PDO("pgsql:host=$db_host;dbname=$db_name", $db_user, $db_password);
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-			// Check if the connection was successful
-			if (!$conn) {
-				echo "Failed to connect to the database.";
-				exit;
-			}
-
-			session_start();
-
-			// Prepare the SQL statement with placeholders for variables
-			$query = "SELECT * FROM customer WHERE id_customer = :id_customer";
-			$stmt = $conn->prepare($query);
-			$stmt->bindValue(':id_customer', $_SESSION['customer_id']);
-			$stmt->execute();
-
-			// Fetch the result
-			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			$customer_id = $result['id_customer'];
-            $customer_username = $result['username'];
-            $customer_email = $result['email'];
-            $customer_first_name = $result['first_name'];
-            $customer_last_name = $result['last_name'];
-		} catch (PDOException $e) {
-			echo "Error: " . $e->getMessage();
-		}
-	}
-?>
+<?php include('../php_scripts/customer_profile_script.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -46,20 +6,59 @@
 		<title>eCommerce - Customer Profile</title>
 		<meta charset="utf-8">
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" href="/css/customer_profile.css">
 	</head>
 	<body>
-			<div>
-                <p>Customer ID: </p>
-                <?= $customer_id ?>
-                <p>Username: </p>
-                <?= $customer_username ?>
-                <p>Email: </p>
-                <?= $customer_email ?>
-                <p>First name: </p>
-                <?= $customer_first_name ?>
-                <p>Last name: </p>
-                <?= $customer_last_name ?>
-            </div>
+		<nav>
+		
+		</nav>
+		<main>
+			<div class="profile-content">
+				<table>
+					<tr>
+						<td>
+							<label>Customer ID: </label>
+						</td>
+						<td>
+							<?= $customer_id ?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Username: </label>
+						</td>
+						<td>
+							<?= $customer_username ?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Email: </label>
+						</td>
+						<td>
+							<?= $customer_email ?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>First name: </label>
+						</td>
+						<td>
+							<?= $customer_first_name ?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Last name: </label>
+						</td>
+						<td>
+							<?= $customer_last_name ?>
+						</td>
+					</tr>
+				</table>
+				<img src="<?= $avatarSrc ?>" alt="User Avatar">
+			</div>
+		</main>
 	</body>
 </html>

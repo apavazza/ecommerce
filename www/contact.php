@@ -1,3 +1,5 @@
+<?php include('./php_scripts/contact_script.php') ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,43 +8,54 @@
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
 		<link rel="stylesheet" href="css/form.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<style>
-			#footer{
-          		position: fixed;
-          		bottom: 0;
-        	}
-		</style>
 	</head>
 	<body>
 		<?php include('navbar.html') ?>
-		<div class="sadrzaj">
 			<div class="content">
-				<form class="field" action="/php_scripts/send.php" method="POST">
+				<form class="field" method="POST">
 					<h3>Contact</h3>
 					<label>First name</label>
-					<input type="text" name="firstname">
+					<input type="text" name="firstname" required>
+					<?= $$errorFirstName ?>
 					<label>Last name</label>
-					<input type="text" name="lastname">
+					<input type="text" name="lastname" required>
+					<?= $errorLastName ?>
 					<label>Email</label>
-					<input type="email" name="email">
+					<input type="email" name="email" required>
 					<label>Topic</label>
 					<select name="subject">
-					<option value="4">Message</option>
-					<option value="3">Bug report</option>
-					<option value="3">Complaint</option>
-					<option value="2">Legal</option>
-					<option value="1">Other</option>
+						<option value="Message">Message</option>
+						<option value="Bug report">Bug report</option>
+						<option value="Complaint">Complaint</option>
+						<option value="Legal">Legal</option>
+						<option value="Other">Other</option>
 					</select>
-					<input type="checkbox" name=""> I accept the <a href="terms.html">terms and conditions</a>.
 					<br>
-					<br>
-					<textarea rows="10">
+					<textarea rows="10" required>
 					</textarea>
+					<br>
+					<img src="/php_scripts/captcha.php?rand=<?php echo rand(); ?>" id='captcha_image'>
+					<br>
+					<label>Enter Captcha</label><br />
+					<input type="text" name="captcha" required/>
+					<?= $errorCaptcha ?>
+					<p>Can't read the image?
+						<a href='javascript: refreshCaptcha();'>Click here</a> to refresh
+					</p>
+					<input type="checkbox" name="checkbox" required> I accept the <a href="terms.html">terms and conditions</a>.
+					<br><br>
 					<button type="submit">SEND</button>
 				</form>
 			</div>
-		</div>
-		</div>
 		<?php include('footer.html') ?>
+		<script>
+			//Refresh Captcha
+			function refreshCaptcha(){
+				var img = document.images['captcha_image'];
+				img.src = img.src.substring(
+					0,img.src.lastIndexOf("?")
+					)+"?rand="+Math.random()*1000;
+			}
+		</script>
 	</body>
 </html>

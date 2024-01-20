@@ -1,3 +1,6 @@
 FROM php:apache
-RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql pgsql
+RUN apt-get update && \
+    apt-get install -y libpq-dev libpng-dev libjpeg-dev libfreetype6-dev && \
+    docker-php-ext-configure gd --with-jpeg --with-freetype && \
+    docker-php-ext-install pdo pdo_pgsql pgsql gd
 EXPOSE 80
