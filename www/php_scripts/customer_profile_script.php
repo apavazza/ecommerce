@@ -27,15 +27,20 @@ if (true) {
         $customer_email = $result['email'];
         $customer_first_name = $result['first_name'];
         $customer_last_name = $result['last_name'];
+        $customer_date_of_birth = $result['date_of_birth'];
+        $customer_address = $result['address'];
         $customer_avatar = $result['avatar'];
 
         // Check if the avatar data exists
-        if (false) {
+        if ($customer_avatar !== null && is_resource($customer_avatar) && get_resource_type($customer_avatar) === 'stream') {
+            // Read the content of the stream
+            $avatarContent = stream_get_contents($customer_avatar);
+        
             // Determine the image type based on your data
             $imageType = 'jpeg'; // Change this based on your actual image type
-
+        
             // Create a data URI for the image
-            $avatarSrc = 'data:image/' . $imageType . ';base64,' . base64_encode($customer_avatar);
+            $avatarSrc = 'data:image/' . $imageType . ';base64,' . base64_encode($avatarContent);
         }
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();

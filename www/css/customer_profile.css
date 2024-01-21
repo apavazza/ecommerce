@@ -1,6 +1,38 @@
-.profile-content{
+#profile-content{
+    display: flex;
+    flex-wrap: wrap;
     width: 70%;
     background-color: beige;
-    margin: 10% auto;
-    padding: 5%;
+    margin: 5% auto 10% auto;
+    padding: 2% 5% 5% 5%;
+}
+
+#profile-content button, input[type="file"]{
+    background-color: gray;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    margin-left: 10px;
+}
+
+#profile-content > div{
+    margin-right: 20px;
+}
+
+#avatar-img{
+    display: block;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#purchases{
+    border: 1px solid black; /* Add a border to the table */
+    border-spacing: 0; /* Add spacing between cells */
+}
+
+#purchases th{
+    padding-right: 50px;
 }

@@ -1,3 +1,10 @@
+import { getCookie } from "/js_scripts/cookie.js";
+
+const customerCookie = getCookie("customer_session");
+if(!customerCookie){
+    window.location.href = "/sign_in.php";
+}
+
 const  usernameButton = document.getElementById("edit-username");
 usernameButton.addEventListener("click", function(){
     const newUsername = prompt("New username");
@@ -25,3 +32,40 @@ lastNameButton.addEventListener("click", function(){
     const lastNameField = document.getElementById("last-name-value");
     lastNameField.innerText = newLastName;
 })
+
+const  dateOfBirthButton = document.getElementById("edit-date-of-birth");
+dateOfBirthButton.addEventListener("click", function(){
+    const newDateOfBirth= prompt("New date of birth");
+    const dateOfBithField = document.getElementById("date-of-birth-value");
+    dateOfBithField.innerText = newDateOfBirth;
+})
+
+const  addressButton = document.getElementById("edit-address");
+addressButton.addEventListener("click", function(){
+    const newAddress= prompt("New address");
+    const addressField = document.getElementById("address-value");
+    addressField.innerText = newAddress;
+})
+
+const avatarButton = document.getElementById("edit-avatar");
+avatarButton.addEventListener("click", function () {
+    const newAvatarInput = document.getElementById("new-avatar");
+    const avatarImg = document.getElementById("avatar-img");
+
+    // Check if a file is selected
+    if (newAvatarInput.files.length > 0) {
+        // Create a FileReader to read the selected file
+        const reader = new FileReader();
+
+        // Define the onload event handler
+        reader.onload = function (e) {
+            // Update the source attribute of the avatar image with the data URL
+            avatarImg.setAttribute("src", e.target.result);
+        };
+
+        // Read the selected file as a data URL
+        reader.readAsDataURL(newAvatarInput.files[0]);
+    } else {
+        alert("Please select a file.");
+    }
+});
