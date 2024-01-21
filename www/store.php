@@ -34,52 +34,8 @@
   </div>
 
 <div class="row">
-  <div class="col-md-3 text-center">
-    <img src="images/black-sweater-apparel-shoot-with-design-space.jpg" width="150px" height="150px">
-    <br>
-    FESB hudica - <strong>€150</strong>
-    <br>
-    <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="150" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
-    <a href="#" class="btn btn-info">Details</a>
-  </div>
-
-  <div class="col-md-3 text-center">
-    <img src="images/pexels-alena-shekhovtcova-6995868.jpg" width="150px" height="150px">
-    <br>
-    FESB hudica Pro - <strong>€300</strong>
-    <br>
-    <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="300" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
-    <a href="#" class="btn btn-info">Details</a>
-  </div>
-
-  <div class="col-md-3 text-center">
-    <img src="images/white-hoodie-man-with-green-pants-city.jpg" width="150px" height="150px">
-    <br>
-    FESB hudica Pro+ - <strong>€500</strong>
-    <br>
-    <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="500" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
-    <a href="#" class="btn btn-info">Details</a>
-  </div>
-
-  <div class="col-md-3 text-center">
-    <img src="images/fesb-logo.png" width="150px" height="150px">
-    <br>
-    product 4 - <strong>€40</strong>
-    <br>
-    <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
-    <a href="#" class="btn btn-info">Details</a>
-  </div>
-
-  <div class="col-md-3 text-center">
-    <img src="images/fesb-logo.png" width="150px" height="150px">
-    <br>
-    product 5 - <strong>€50</strong>
-    <br>
-    <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/fesb-logo.png">Add to Cart</button>
-    <a href="#" class="btn btn-info">Details</a>
-  </div>
-
-</div>
+    <?php include('php_scripts/get_products.php'); ?>
+<div>
 
 <?php include('footer.html') ?>
 
@@ -115,9 +71,26 @@
         cartItems: [
           
         ],
-        clickOnAddToCart: function($addTocart){
-          goToCartIcon($addTocart);
+        clickOnAddToCart: function($addTocart, event){
+        var quantityDisplay = $addTocart.parent().find('.product-quantity');
+        var currentQuantity = parseInt(quantityDisplay.data('quantity'));
+
+        if (currentQuantity > 0) {
+            // Decrease the displayed quantity by 1
+            quantityDisplay.text('(' + (currentQuantity - 1) + ')');
+            quantityDisplay.data('quantity', currentQuantity - 1);
+
+            // Perform other actions as needed
+            goToCartIcon($addTocart);
+        } else {
+            // Display an error message
+            alert("Cannot add more. Quantity is already 0.");
+
+            // Prevent the default behavior of the button click
+            event.preventDefault();
+        }
         },
+
         afterAddOnCart: function(products, totalPrice, totalQuantity) {
           console.log("afterAddOnCart", products, totalPrice, totalQuantity);
         },
@@ -136,7 +109,8 @@
         getDiscountPrice: function(products, totalPrice, totalQuantity) {
           console.log("calculating discount", products, totalPrice, totalQuantity);
           return totalPrice * 1; // no discount
-        }
+        },
+        
       });
 
       $("#addNewProduct").click(function(event) {
