@@ -31,8 +31,11 @@ if (true) {
         $customer_address = $result['address'];
         $customer_avatar = $result['avatar'];
 
+        if (!$customer_avatar) {
+            $avatarSrc = "../images/avatar-default-symbolic.svg";
+        }
         // Check if the avatar data exists
-        if ($customer_avatar !== null && is_resource($customer_avatar) && get_resource_type($customer_avatar) === 'stream') {
+        else if ($customer_avatar !== null && is_resource($customer_avatar) && get_resource_type($customer_avatar) === 'stream') {
             // Read the content of the stream
             $avatarContent = stream_get_contents($customer_avatar);
         
@@ -42,7 +45,8 @@ if (true) {
             // Create a data URI for the image
             $avatarSrc = 'data:image/' . $imageType . ';base64,' . base64_encode($avatarContent);
         }
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 }
