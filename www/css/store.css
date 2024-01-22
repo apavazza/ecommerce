@@ -1,0 +1,12 @@
+.btn-danger{
+    background-color: orange;
+    border: 0;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.btn-info{
+    background-color: green;
+    border: 0;
+    border-radius: 2px;
+}

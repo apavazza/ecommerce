@@ -12,9 +12,9 @@
 	<body>
 		<?php include('navbar.html') ?>
 		<div class="slider">
-			<img src="images/pexels-pixabay-258356.jpg" alt="" />
-			<img src="images/black-sweater-apparel-shoot-with-design-space.jpg" alt="" />
-			<img src="images/white-hoodie-man-with-green-pants-city.jpg" alt="" />
+			<img src="images/img1.jpg" alt="" />
+			<img src="images/img2.jpg" alt="" />
+			<img src="images/img3.jpg" alt="" />
 		</div>
 
 		<div class="sadrzaj">

@@ -4,8 +4,8 @@
 		<title>eCommerce - Store</title>
 		<meta charset="utf-8">
 		<link rel="icon" href="images/icons8-e-commerce-64.png" type="image/x-icon"/>
-    <link rel="stylesheet" href="css/store.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/store.css">
       <style>
         #footer{
           position: fixed;
@@ -99,9 +99,9 @@
         },
         checkoutCart: function(products, totalPrice, totalQuantity) {
           var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
-          checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
+          checkoutString += "\n\n id \t name \t summary \t price \t quantity";
           $.each(products, function(){
-            checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
+            checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity);
           });
           alert(checkoutString)
           console.log("checking out", products, totalPrice, totalQuantity);

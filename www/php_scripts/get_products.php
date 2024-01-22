@@ -5,13 +5,6 @@ $dbname = "ecommerce";
 $user = "admin";
 $password = "~a5Xf;UB}^3kchY";
 
-$productImages = array(
-    'FESB hudica' => 'images/black-sweater-apparel-shoot-with-design-space.jpg',
-    'FESB hudica Pro' => 'images/pexels-alena-shekhovtcova-6995868.jpg',
-    'FESB hudica Pro+' => 'images/white-hoodie-man-with-green-pants-city.jpg',
-    // Dodajte ostale proizvode prema potrebi
-);
-
 try {
     // Uspostavi vezu s bazom podataka
     $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
@@ -31,19 +24,29 @@ try {
             $productName = $row['name'];
             $productPrice = floatval($row['price']);
             $productQuantity = floatval($row['available_quantity']);
+            $productImage = $row['image'];
         
-            if (isset($productImages[$productName])) {
-                $productImage = $productImages[$productName];
-            } else {
+            if (!isset($productImage)) {
                 $productImage = 'images/fesb-logo.png';
+            }
+
+            if ($productImage !== null && is_resource($productImage) && get_resource_type($productImage) === 'stream') {
+                // Read the content of the stream
+                $productImageContent = stream_get_contents($productImage);
+            
+                // Determine the image type based on your data
+                $imageType = 'jpeg'; // Change this based on your actual image type
+            
+                // Create a data URI for the image
+                $productImageSrc = 'data:image/' . $imageType . ';base64,' . base64_encode($productImageContent);
             }
         
             echo '<div class="col-md-3 text-center">';
-            echo '<img src="' . $productImage . '" width="150px" height="150px">';
+            echo '<img src="' . $productImageSrc . '" width="150px" height="150px" style="object-fit: cover;">';
             echo '<br>';
             echo $productName . ' - <strong>' . $productPrice . '</strong> <span class="product-quantity" data-id="' . $productId . '" data-quantity="' . $productQuantity . '">(' . $productQuantity . ')</span>';
             echo '<br>';
-            echo '<button class="btn btn-danger my-cart-btn" data-id="' . $productId . '" data-name="' . $productName  . '" data-price="' . $productPrice . '" data-image="' . $productImage . '" data-quantity="1"' . $productQuantity . '">Add to Cart</button>';
+            echo '<button class="btn btn-danger my-cart-btn" data-id="' . $productId . '" data-name="' . $productName  . '" data-price="' . $productPrice . '" data-image="' . $productImageSrc . '" data-quantity="1"' . $productQuantity . '">Add to Cart</button>';
             echo '<a href="#" class="btn btn-info">Details</a>';
             echo '</div>';
         }
