@@ -1,5 +1,3 @@
-# eCommerce
-
 Clone the repository using `git clone --recurse-submodules`
 
 ## Docker
